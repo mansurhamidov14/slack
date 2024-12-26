@@ -15,11 +15,12 @@ use CL\Slack\Model\AbstractModel;
 use CL\Slack\Test\Model\ModelTrait;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author Cas Leentfaar <info@casleentfaar.com>
  */
-abstract class AbstractModelTest extends \PHPUnit_Framework_TestCase
+abstract class AbstractModelTest extends TestCase
 {
     use ModelTrait;
 
@@ -31,7 +32,7 @@ abstract class AbstractModelTest extends \PHPUnit_Framework_TestCase
     /**
      * @inheritdoc
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $metaDir = __DIR__ . '/../../../../../../src/CL/Slack/Resources/config/serializer';
         $this->serializer = SerializerBuilder::create()->addMetadataDir($metaDir)->build();

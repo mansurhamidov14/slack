@@ -13,11 +13,12 @@ namespace CL\Slack\Tests\Transport\Events;
 
 use CL\Slack\Test\Model\ModelTrait;
 use CL\Slack\Transport\Events\RequestEvent;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author Cas Leentfaar <info@casleentfaar.com>
  */
-class RequestEventTest extends \PHPUnit_Framework_TestCase
+class RequestEventTest extends TestCase
 {
     use ModelTrait;
 

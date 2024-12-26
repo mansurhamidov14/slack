@@ -14,11 +14,12 @@ namespace CL\Slack\Tests\Payload;
 use CL\Slack\Payload\PayloadResponseInterface;
 use CL\Slack\Serializer\PayloadResponseSerializer;
 use CL\Slack\Test\Model\ModelTrait;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author Cas Leentfaar <info@casleentfaar.com>
  */
-abstract class AbstractPayloadResponseTestCase extends \PHPUnit_Framework_TestCase
+abstract class AbstractPayloadResponseTestCase extends TestCase
 {
     use ModelTrait;
 
@@ -27,7 +28,7 @@ abstract class AbstractPayloadResponseTestCase extends \PHPUnit_Framework_TestCa
      */
     private $serializer;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->serializer = new PayloadResponseSerializer();
     }

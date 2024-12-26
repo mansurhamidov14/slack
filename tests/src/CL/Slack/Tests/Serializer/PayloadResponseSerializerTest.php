@@ -13,18 +13,19 @@ namespace CL\Slack\Tests\Serializer;
 
 use CL\Slack\Serializer\PayloadResponseSerializer;
 use CL\Slack\Test\Payload\MockPayloadResponse;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author Cas Leentfaar <info@casleentfaar.com>
  */
-class PayloadResponseSerializerTest extends \PHPUnit_Framework_TestCase
+class PayloadResponseSerializerTest extends TestCase
 {
     /**
      * @var PayloadResponseSerializer
      */
     private $payloadResponseSerializer;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->payloadResponseSerializer = new PayloadResponseSerializer();
     }

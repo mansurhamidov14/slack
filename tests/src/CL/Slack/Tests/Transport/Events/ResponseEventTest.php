@@ -12,11 +12,12 @@
 namespace CL\Slack\Tests\Transport\Events;
 
 use CL\Slack\Transport\Events\ResponseEvent;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author Cas Leentfaar <info@casleentfaar.com>
  */
-class ResponseEventTest extends \PHPUnit_Framework_TestCase
+class ResponseEventTest extends TestCase
 {
     /**
      * @test
