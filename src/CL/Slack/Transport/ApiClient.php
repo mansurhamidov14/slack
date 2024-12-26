@@ -113,7 +113,7 @@ class ApiClient implements ApiClientInterface
 
             return $this->payloadResponseSerializer->deserialize($responseData, $payload->getResponseClass());
         } catch (\Exception $e) {
-            throw new SlackException(sprintf('Failed to send payload: %s', $e->getMessage()), null, $e);
+            throw new SlackException(sprintf('Failed to send payload: %s', $e->getMessage()), 0, $e);
         }
     }
 
@@ -147,14 +147,14 @@ class ApiClient implements ApiClientInterface
         try {
             $data['token'] = $token ?: $this->token;
 
-            $this->eventDispatcher->dispatch(self::EVENT_REQUEST, new RequestEvent($data));
+            $this->eventDispatcher->dispatch(new RequestEvent($data), self::EVENT_REQUEST);
 
             $request = $this->createRequest($method, $data);
 
             /** @var ResponseInterface $response */
             $response = $this->client->send($request);
         } catch (\Exception $e) {
-            throw new SlackException('Failed to send data to the Slack API', null, $e);
+            throw new SlackException('Failed to send data to the Slack API', 0, $e);
         }
 
         try {
@@ -166,11 +166,11 @@ class ApiClient implements ApiClientInterface
                 ));
             }
 
-            $this->eventDispatcher->dispatch(self::EVENT_RESPONSE, new ResponseEvent($responseData));
+            $this->eventDispatcher->dispatch(new ResponseEvent($responseData), self::EVENT_RESPONSE);
 
             return $responseData;
         } catch (\Exception $e) {
-            throw new SlackException('Failed to process response from the Slack API', null, $e);
+            throw new SlackException('Failed to process response from the Slack API', 0, $e);
         }
     }
 
