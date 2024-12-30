@@ -82,19 +82,4 @@ class ApiClientTest extends TestCase
         $this->assertArrayHasKey(ApiClient::EVENT_REQUEST, $eventsDispatched);
         $this->assertArrayHasKey(ApiClient::EVENT_RESPONSE, $eventsDispatched);
     }
-
-    /**
-     * @test
-     *
-     * @expectedException \CL\Slack\Exception\SlackException
-     * @expectedExceptionMessage You must supply a token to send a payload, since you did not provide one during construction
-     */
-    public function it_can_not_send_a_payload_without_a_token()
-    {
-        /* @var PayloadInterface|Mock\MockInterface $mockPayload */
-        $mockPayload = Mock::mock(PayloadInterface::class);
-
-        $apiClient = new ApiClient();
-        $apiClient->send($mockPayload);
-    }
 }

@@ -33,4 +33,9 @@ class RequestEventTest extends TestCase
 
         $this->assertEquals($expectedPayload, $actualPayload);
     }
+
+    protected function tearDown(): void
+    {
+        \Mockery::close();
+    }
 }

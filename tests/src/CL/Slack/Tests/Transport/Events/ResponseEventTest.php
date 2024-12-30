@@ -30,4 +30,9 @@ class ResponseEventTest extends TestCase
 
         $this->assertEquals($expectedPayloadResponse, $actualPayloadResponse);
     }
+
+    protected function tearDown(): void
+    {
+        \Mockery::close();
+    }
 }
