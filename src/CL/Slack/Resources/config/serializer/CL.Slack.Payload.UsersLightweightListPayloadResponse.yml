@@ -1,0 +1,4 @@
+CL\Slack\Payload\UsersLightweightListPayloadResponse:
+    properties:
+        members:
+            type: array<CL\Slack\Model\UserLightweight>
